@@ -452,6 +452,239 @@ function calcularRaizCuadrada(num) {
 
 console.log(calcularRaizCuadrada(-4));
 
+/* Mini proyecto conteo de cartas */
+
+var conteo = 0;
+
+function contarCartas(carta) {
+    var decision;
+
+    switch (carta) {
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            conteo++;
+            break;
+        case 10:
+        case "J":
+        case "Q":
+        case "K":
+        case "A":
+            conteo--;
+            break;
+    }
+
+    if (conteo > 0) {
+        decision = "Apostar";
+    } else {
+        decision = "Esperar";
+    }
+
+    return conteo + " " + decision;
+}
+
+console.log(contarCartas(2));
+console.log(contarCartas("J"));
+console.log(contarCartas(2));
+console.log(contarCartas("K"));
+console.log(contarCartas(10));
+
+/* Objetos */
+
+var miGato = {
+    "nombre": "MazeKeen",
+    "edad": 2,
+    "peso": 4,
+    "raza": "Criollo"
+};
+
+console.log(miGato.nombre);
+
+/* Acceder a las propiedades -- notacion de corchetes */
+
+var miCuaderno = {
+    "color": "Rojo",
+    "categoria": 3,
+    "numero de paginas": 200,  // -> se puede usar camelCase para evitar tener propiedades separadas y poder utilizar notación de puntos.
+    "numero de hojas": 100
+};
+
+console.log(miCuaderno["numero de paginas"]);
+
+/* Acceso a propiedades de variables */
+
+var resultados = {
+    1: "Nora",
+    2: "Gino",
+    3: "Edinson"
+};
+
+var posicion = 3;
+console.log(resultados[posicion]);
+
+/* Actualizar propiedades */
+
+var miObjeto = {
+    "nombre": "Edinson",
+    "apellido": "Corredor",
+    "propiedades": ["Bicicleta", "Computador"]
+};
+
+miObjeto.nombre = "Kamila"; //-> Asignar o actualizar el valor del objeto
+console.log(miObjeto.nombre);
+
+miObjeto.propiedades.push("Motocicleta"); //-> para quitar podemos usar pop();
+console.log(miObjeto.propiedades);
+
+miObjeto.propiedades[1] = "Casa"; //-> Actualizar un valor especifico del arreglo
+console.log(miObjeto.propiedades);
+
+/* Agregar propiedades a los objetos */
+
+var miObjeto = {
+    "nombre": "Edinson",
+    "apellido": "Corredor",
+    "propiedades": ["Bicicleta", "Computador"]
+};
+
+miObjeto.gustos = "Videojuegos"; //-> Se agrega con la notacion de punto y corchetes adjuntando el nombre de la nueva propiedad y su valor. 
+console.log(miObjeto);
+
+/* Eliminar propiedades de un objeto */
+
+delete miObjeto.gustos;
+console.log(miObjeto);
+
+/* Objetos para busquedas */
+
+function buscarElementoQuimico(simbolo) {
+
+    //-> Este bloque de codigo se puede reemplazar por un objeto para realizar codigo mas compacto.
+
+    var elementoQuimico = "";
+
+    switch (simbolo) {
+        case "AL":
+            elementoQuimico = "Aluminio";
+            break;
+        case "S":
+            elementoQuimico = "Azufre"
+            break;
+        case "Cl":
+            elementoQuimico = "Cloro"
+            break;
+    };
+
+    return elementoQuimico
+
+    //-> Se puede reemplazar de esta manera
+
+    var simbolosQuimicos = {
+        "Al": "Aluminio",
+        "S": "Azufre",
+        "Cl": "Cloro"
+    };
+
+    return simbolosQuimicos[simbolo];
+
+};
+
+console.log(buscarElementoQuimico("Al"));
+
+
+/* Verificar propiedades del objeto */
+
+var miCuaderno = {
+    "color": "Verde",
+    "categoria": 3,
+    "precio": 3200
+}
+
+console.log(miCuaderno.hasOwnProperty("color"));
+
+function verificarPropiedad(obj, propiedad) {
+    if (obj.hasOwnProperty(propiedad)) {
+        return "La propiedad: " + propiedad + " es; " + obj[propiedad];
+    } else {
+        return "El objeto no tiene la propiedad: " + propiedad;
+    }
+}
+
+console.log(verificarPropiedad(miCuaderno, "precio"));
+
+/* Objetos complejos */
+
+var ordenesDePizzas = [
+    {
+        "tipo": "Margarita",
+        "tamaño": "Individual",
+        "precio": 16755,
+        "toppings": [
+            "extra queso",
+            "champiñones",
+            "piña"
+        ],
+        "paraLlevar": true
+    },
+    {
+        "tipo": "Cuatro quesos",
+        "tamaño": "Familiar",
+        "precio": 32856,
+        "toppings": [
+            "extra queso",
+            "pimenton",
+        ],
+        "paraLlevar": false
+    },
+    {
+        "tipo": "Napolitana",
+        "tamaño": "Familiar",
+        "precio": 35856,
+        "toppings": [
+            "piña"
+        ],
+        "paraLlevar": true
+    }
+];
+
+console.log(ordenesDePizzas[2].toppings);
+
+/* Objetos anidados */
+
+var miReceta = {
+    "descripcion": "Mi postre favorito",
+    "costo": 16000,
+    "ingredientes": {
+        "masa": {
+            "harina": "100 grs",
+            "sal": "1 cucharada",
+            "agua": "1 taza"
+        },
+        "cobertura": {
+            "azucar": "120 grs",
+            "chocolate": "4 cucharadas",
+            "mantequilla": "200 grs"
+        }
+    }
+};
+
+console.log(miReceta.ingredientes.masa.agua);
+console.log(miReceta["ingredientes"]["masa"]["agua"]);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
