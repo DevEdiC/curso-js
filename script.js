@@ -673,7 +673,92 @@ var miReceta = {
 console.log(miReceta.ingredientes.masa.agua);
 console.log(miReceta["ingredientes"]["masa"]["agua"]);
 
+/* Arreglos anidados */
 
+var misPlantas = [
+    {
+        tipo: "flores",
+        lista: [
+            "rosas",
+            "tulipanes",
+            "dientes de león"
+        ]
+    },
+    {
+        tipo: "arboles",
+        lista: [
+            "abeto",
+            "pino",
+            "abedul"
+        ]
+    }
+]
+
+var segundoArbol = misPlantas[1].lista[1];
+console.log(segundoArbol);
+
+/* Colección de discos -- Mini proyect */
+
+/*
+Tenemos un objeto que representa parte de una colección
+de álbunes musicales.
+
+Cada álbum tiene un número de identificación único (id)
+asociado a otas propiedades.
+
+No todos los álbumes tienen la información completa.
+*/
+
+var coleccionDeDiscos = {
+    7853: {
+        tituloDeAlbum: "Bee Gees Greatest",
+        artista: "Bee Gees",
+        canciones: ["Stayin ' Alive"]
+    },
+    5439: {
+        tituloDeAlbum: "ABBA Gold"
+    }
+}
+
+/*
+Define una función actualizarDiscos que tome los siguientes parámetros:
+- Discos (el objeto quie representa la colección de discos).
+- id.
+- propiedad ("artista" o "canciones").
+- valor.
+
+Tu meta es completar la funcióm implementando las siguientes reglas para
+modificar el objeto pasado a la función:
+
+- Si "valor" es una cadena vacía, elimina la propiedad del álbum correspondiente.
+
+- Si "propiedad" es igual a la cadena de caracteres "canciones" pero el álbum
+no tiene una propiedad llamada "canciones", crea un arreglo vacío y agrega "valor"
+a ese arreglo.
+
+- Si "propiedad" es igual a la cadena de caracteres "canciones" y "valor" no es
+una cadena vacía, agrega "valor" al final del arreglo de canciones del álbum
+correspondiente.
+
+-Si "valor" no es una cadena vacía y "propiedad" no es igual a "canciones", asigna
+el valor del parámetro "valor" a la propiedad.
+Si la propiedad no existe, debes crearla y asignar ese valor.
+ */
+
+function actualizarDiscos(discos, id, propiedad, valor) {
+    if (valor === "") {
+        delete discos[id][propiedad];
+    } else if (propiedad === "canciones") {
+        discos[id][propiedad] = discos[id][propiedad] || [];
+        discos[id][propiedad].push(valor);
+    } else {
+        discos[id][propiedad] = valor;
+    }
+}
+
+console.log(coleccionDeDiscos[5439].artista);
+actualizarDiscos(coleccionDeDiscos, 5439, "artista", "ABBA");
+console.log(coleccionDeDiscos[5439].artista);
 
 
 
