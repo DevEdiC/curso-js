@@ -760,34 +760,182 @@ console.log(coleccionDeDiscos[5439].artista);
 actualizarDiscos(coleccionDeDiscos, 5439, "artista", "ABBA");
 console.log(coleccionDeDiscos[5439].artista);
 
+/* Ciclo While */
+
+var i = 0;
+
+while (i < 5) {
+    console.log("Hola mundo")
+    i++;
+};
+
+var miArreglo = [];
+var i = 0;
+
+console.log(miArreglo);
+
+while (i < 10) {
+    miArreglo.push(i);
+    i++;
+};
+
+console.log(miArreglo);
+
+var numeros = [2, 3, 4, 5, 6, 7, 8, 9, 35];
+
+while (numeros.length > 4) {
+    numeros.pop();
+}
+
+console.log(numeros);
 
 
+/* Ciclo for */
+
+var miArreglo = [];
+
+for (var i = 0; i < 10; i++) {
+    miArreglo.push(i);
+}
+
+console.log(miArreglo);/*
+
+/* Ciclos for números impares */
+
+var miArreglo = [];
+
+for (var i = 1; i < 20; i += 2) {
+    miArreglo.push(i);
+}
+
+console.log(miArreglo);
+
+/* Ciclo for contar hacia atras */
+
+var miArreglo = [];
+
+for (var i = 0; i < 20; i += 2) {
+    miArreglo.push(i);
+}
+
+console.log(miArreglo);
+
+for (var i = miArreglo.length - 1; i >= 0; i--) {
+    console.log(miArreglo[i]);
+}
+
+function contarPares(arreglo) {
+    var totalPares = 0;
+
+    for (var i = 0; i < arreglo.length; i++) {
+        if (arreglo[i] % 2 == 0) {
+            console.log("El numero: " + arreglo[i] + " es un numero par")
+            totalPares++;
+        } else {
+            console.log("El numero: " + arreglo[i] + " no es un numero par")
+        }
+    }
+    return totalPares;
+};
+
+console.log(contarPares([3, 7, 9]));
+
+/* Ciclos for anidados */
+
+var miArreglo = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+for (var i = 0; i < miArreglo.length; i++) {
+    console.log("Nueva iteración");
+    var arregloAnidado = miArreglo[i];
+    console.log("Arreglo: " + arregloAnidado);
+
+    for (var j = 0; j < arregloAnidado.length; j++) {
+        console.log("Ciclo anidado");
+        console.log("Elemento:")
+        console.log(arregloAnidado[j]);
+    }
+}
+
+/* Ciclos do while */
+
+var x;
+x = 1;
+
+do {
+    console.log(x);
+    x++;
+} while (x < 10)
 
 
+/* Busqueda de perfil */
 
+var contactos = [
+    {
+        "nombre": "Carlos",
+        "apellido": "Corredor",
+        "numero": "124578596",
+        "gustos": ["Pizza", "Programación"]
+    },
+    {
+        "nombre": "Edinson",
+        "apellido": "Corredor",
+        "numero": "1002537529",
+        "gustos": ["Ejercicio", "Programación"]
+    },
+    {
+        "nombre": "Maria",
+        "apellido": "Castañeda",
+        "numero": "125421325",
+        "gustos": ["Pasta", "Ejercicio"]
+    },
+    {
+        "nombre": "Angel",
+        "apellido": "Corredor",
+        "numero": "78456821",
+        "gustos": ["Carros", "Peliculas"]
+    }
+];
 
+function buscarPerfil(nombre, propiedad) {
+    for (var i = 0; i < contactos.length; i++) {
+        if (contactos[i]["nombre"] === nombre) {
+            return console.log(contactos[i][propiedad] || "La propiedad no existe");
+        }
+    }
+    return console.log("El contacto: " + nombre + " no existe");
+};
 
+buscarPerfil("Zulma", "apellido");
 
+/* Numeros aleatorios */
 
+function generarFraccionAleatoria() {
+    return Math.random();
+}
 
+console.log(generarFraccionAleatoria());
 
+/* Numeros enteros aleatorios */
 
+function generarEneteroAleatorio(limiteSuperior) {
+    return Math.floor(Math.random() * limiteSuperior);
+}
 
+console.log(generarEneteroAleatorio(5));
 
+/* Generar aleatorios en un rango especifico */
 
+function rangoAleatorio(limiteInferior, limiteSuperior){
+  return Math.floor(Math.random() * (limiteSuperior - limiteInferior +1)) + limiteInferior;
+}
 
+console.log(rangoAleatorio(3,8));
 
+/* Función parseInt() */ //-> Convierte cadenas de caracteres a enteros
 
+var numero = "10";
+var numero2 = 10;
 
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(numero === numero2);
+numero = parseInt(numero);
+console.log(numero === numero2);
